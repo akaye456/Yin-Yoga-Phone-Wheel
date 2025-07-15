@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spin the Morning Yin Yoga Wheel</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin: 5vh 5vw;
+    }
+
+    h1 {
+      font-size: 5vw;
+      margin-bottom: 2vh;
+    }
+
+    #wheel {
+      width: 60vw;
+      max-width: 300px;
+      height: 60vw;
+      max-height: 300px;
+      margin: 5vh auto;
+      border: 6px solid #0077cc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 4vw;
+      background: radial-gradient(circle, #ccf2ff 0%, #99e6ff 100%);
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 5vw;
+      cursor: pointer;
+      margin-top: 2vh;
+      border: none;
+      border-radius: 8px;
+      background-color: #0077cc;
+      color: #fff;
+    }
+
+    button:active {
+      background-color: #005fa3;
+    }
+
+    a {
+      display: block;
+      margin-top: 3vh;
+      font-size: 4.5vw;
+      color: #0077cc;
+      text-decoration: underline;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0); }
+      100% { transform: rotate(1440deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎡 Spin for Morning Yin Yoga!</h1>
+  <div id="wheel">Spin!</div>
+  <button onclick="spinWheel()">Spin</button>
+  <p id="result"></p>
+
+  <script>
+    const videos = [
+      { title: "15 min Morning Yin Yoga Stretch - NO PROPS (with Luna!)", url: "https://www.youtube.com/watch?v=-JuN7kZbbvg" },
+      { title: "Morning Yin Yoga - 10 minute no props practice to start your day right!", url: "https://www.youtube.com/watch?v=CkmwYa55XA0" },
+      { title: "Yin Yoga for the Morning - 15 min Deep Stretch & Release", url: "https://www.youtube.com/watch?v=z_lrG9mEYTw" },
+      { title: "15-Minute Morning Yin Yoga Stretch for Beginners (No Props Needed)", url: "https://www.youtube.com/watch?v=Q_TUloaJGVI" },
+      { title: "15 min Morning Yin Yoga - Wake Up & STRETCH!" ,url: "https://www.youtube.com/watch?v=ZMp5o_7gNvQ" },
+      { title:"The BEST way to start your day! | 10-Minute Morning Yoga"  ,url: "https://www.youtube.com/watch?v=klmBssEYkdU"},
+      { title: "10 Min Morning Yoga Flow | Full Body Stretch To Start The Day" ,url: "https://www.youtube.com/watch?v=uQ2yJhF4zZY"},
+      { title: "Gentle Yoga Flow for Morning Energy | 15 Min", url: "https://www.youtube.com/watch?v=wLCUTTdOVfA" },
+      { title: "Full Body Morning Yoga Stretch | 20 Min", url: "https://www.youtube.com/watch?v=MXmHkKSjk74" },
+      { title: "Morning Yin Yoga for Stress Relief | 10 Min", url: "https://www.youtube.com/watch?v=M8hPYdu7qFA" },
+      { title: "Wake Up Yoga Flow | 12 Min Full Body Stretch", url: "https://www.youtube.com/watch?v=C2RAjUEAoLI" },
+      { title: "Slow Morning Yoga for Beginners | 15 Min", url: "https://www.youtube.com/watch?v=IBx-MhwtYJw" },
+      { title: "Yin Yoga for a Peaceful Morning | 20 Min", url: "https://www.youtube.com/watch?v=--jPJL2cymY" },
+      { title: "Morning Mobility Yoga Flow | 10 Min", url: "https://www.youtube.com/watch?v=Ai5RehNnZC8" },
+      { title: "Wake Up Yoga to Start Your Day | 10 Min", url: "https://www.youtube.com/watch?v=xcMOYrdHrkE" },
+      { title: "Morning Stretch & Breathe | Gentle 12 Min Flow", url: "https://www.youtube.com/watch?v=dXkxjCimfxc" },
+      { title: "Beginner Morning Yoga Flow | 15 Min", url: "https://www.youtube.com/watch?v=j8bEWn2E9uo" },
+      { title: "Yoga for Energy & Focus | 10 Min Morning Practice", url: "https://www.youtube.com/watch?v=2cxcGwDZNWQ" },
+      { title: "Invigorating Morning Yoga | 15 Min Wake Up Flow", url: "https://www.youtube.com/watch?v=K_8bQOXl46o" },
+      { title: "Mindful Morning Stretch | Gentle Yoga for Beginners", url: "https://www.youtube.com/watch?v=3HuwnAKdUUU" },
+      { title: "Quick Morning Stretch | 10 Min Energizing Yoga", url: "https://www.youtube.com/watch?v=nnrqO-9OTwg" },
+      { title: "Sunrise Yoga | 15 Min Morning Flow for Clarity", url: "https://www.youtube.com/watch?v=aQMDmg3yiUo" }
+    ];
+
+    function spinWheel() {
+      const wheel = document.getElementById("wheel");
+      wheel.style.animation = "spin 2s ease-out";
+
+      setTimeout(() => {
+        wheel.style.animation = "none";
+        const choice = videos[Math.floor(Math.random() * videos.length)];
+        wheel.textContent = "✨ Flow Chosen!";
+        document.getElementById("result").innerHTML =
+          `<a href="${choice.url}" target="_blank">${choice.title}</a>`;
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
